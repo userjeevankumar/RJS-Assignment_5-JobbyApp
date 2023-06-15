@@ -1,4 +1,5 @@
 /* import {Link, withRouter} from 'react-router-dom' */
+import {Link, withRouter} from 'react-router-dom'
 import {ImHome} from 'react-icons/im'
 import {FiLogOut} from 'react-icons/fi'
 import Cookies from 'js-cookie'
@@ -13,28 +14,39 @@ const Header = props => {
 
   return (
     <nav className="navbar-container">
-      <ul className="header-container">
-        <li className="logo-container">
+      <div className="nav-content">
+        <Link to="/">
           <img
             src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
             alt="website logo"
-            className="header-logo"
+            className="nav-bar-website-logo"
           />
-        </li>
-        <li className="home-job-container">
-          <ImHome className="home-icon" to="/" />
-          <h1 className="nav-text">Home</h1>
-          <h1 className="nav-text">Jobs</h1>
-        </li>
-        <li>
-          <FiLogOut className="home-icon" onClick={onClickLogout} />
-          <button onClick={onClickLogout} className="logout-btn" type="button">
-            Logout
-          </button>
-        </li>
-      </ul>
+        </Link>
+        <ul className="nav-menu-container">
+          <li className="nav-bar-text-container">
+            <ImHome className="nav-bar-home-icon" to="/" />
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+          </li>
+
+          <li className="nav-bar-text-container">
+            <Link to="/jobs" className="nav-link">
+              Jobs
+            </Link>
+          </li>
+        </ul>
+        <FiLogOut className="nav-bar-home-icon" onClick={onClickLogout} />
+        <button
+          onClick={onClickLogout}
+          className="logout-desktop-btn"
+          type="button"
+        >
+          Logout
+        </button>
+      </div>
     </nav>
   )
 }
 
-export default Header
+export default withRouter(Header)

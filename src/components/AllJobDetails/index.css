@@ -1,0 +1,5 @@
+.profile-status-container {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  height: 100vh;
+  background-size: cover;
+}
